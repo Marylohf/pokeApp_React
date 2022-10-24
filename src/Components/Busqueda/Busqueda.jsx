@@ -1,26 +1,27 @@
-import {React, useState} from 'react'
-import Pokeapp  from '../Datos/Datos'
+import {React, useState, useEffect} from 'react'
+import pokeApp  from '../Datos/Datos'
 
 const Busqueda = () => {
 
   const [pkm, setPkm] = useState("")
 
-  // console.log(edad.edad)
+  useEffect(() => {
+    pokeApp(pkm);
+  }, [pkm])
+  
+
   const handleSearch = (e) => {
     
-    e.preventDefault()
+    e.preventDefault() 
 
     const pokemonBuscado = e.target.pokemon.value
     setPkm(pokemonBuscado)
-
-    console.log(pkm)
     
-    Pokeapp(pkm);
-    console.log(pkm)
+    
+    console.log(pokemonBuscado)
 
-    // console.log(pokemonBuscado)
   }
-
+  
 
   return (
     <div className='cont-busqueda'>

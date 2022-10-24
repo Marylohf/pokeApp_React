@@ -1,10 +1,11 @@
 import axios from 'axios'
    
-  const Pokeapp = async (busqueda) => {
+  const pokeApp = async (busqueda) => {
 
       let baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
   
-      try {
+      if (busqueda !== "") {
+        try {
 
           console.log(`${baseUrl}${busqueda}`)
 
@@ -13,11 +14,14 @@ import axios from 'axios'
 
           console.log(pokeData)
           
-      } catch (error) {
-          console.log(error)
+        } catch (error) {
+            console.log(error)
+        }
       }
+
+
   
   }
 
 
-export default Pokeapp
+export default pokeApp
