@@ -1,20 +1,23 @@
 import {React, useState} from 'react'
-import Datos from "../Datos/Datos"
+import Pokeapp  from '../Datos/Datos'
 
-const Busqueda = ({loquemedalagana, edad}) => {
+const Busqueda = () => {
 
   const [pkm, setPkm] = useState("")
-  const pokeSearch = {pkm, setPkm}
 
   // console.log(edad.edad)
-  edad.setEdad(32)
-  
   const handleSearch = (e) => {
+    
     e.preventDefault()
 
     const pokemonBuscado = e.target.pokemon.value
     setPkm(pokemonBuscado)
+
+    console.log(pkm)
     
+    Pokeapp(pkm);
+    console.log(pkm)
+
     // console.log(pokemonBuscado)
   }
 
@@ -26,7 +29,6 @@ const Busqueda = ({loquemedalagana, edad}) => {
         <input type="text" name="pokemon" />
         <button>Buscar</button>
       </form>
-      <Datos pokeSearch={pokeSearch} />
     </div>
   )
 }

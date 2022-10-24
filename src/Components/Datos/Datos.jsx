@@ -1,34 +1,23 @@
-import {React, useState} from 'react'
 import axios from 'axios'
+   
+  const Pokeapp = async (busqueda) => {
 
-const Datos = ({pokeSearch}) => {
+      let baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
+  
+      try {
 
-    // console.log(pokeSearch)
+          console.log(`${baseUrl}${busqueda}`)
 
-    const Pokeapp = async () => {
+          const response = await axios.get(`${baseUrl}${busqueda}`)
+          const pokeData = await response.data  //Axios siempre devuelve un objeto, dentro de la key data se encuentra la respuesta de la api
 
-        let baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
-    
-        try {
+          console.log(pokeData)
+          
+      } catch (error) {
+          console.log(error)
+      }
+  
+  }
 
-            console.log(`${baseUrl}${pokeSearch.pkm}`)
 
-            const response = await axios.get(`${baseUrl}${pokeSearch.pkm}`)
-            const pokeData = await response.data  //Axios siempre devuelve un objeto, dentro de la key data se encuentra la respuesta de la api
-
-            console.log(pokeData)
-            
-        } catch (error) {
-            console.log(error)
-        }
-    
-    }
-
-  return (
-    <div>
-
-    </div>
-  )
-}
-
-export default Datos
+export default Pokeapp
